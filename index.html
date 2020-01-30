@@ -1,0 +1,304 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3>OBJETIVO</h3>
+    <br>
+    <p>Desarollar una aplicación web local para la gestion de expedientes de la clínica
+        de
+        fisioterapia de la Universidad Americana de Puebla Campus Teziutlán.</p>
+    <h3>ENTREGABLES</h3>
+    <br>
+    <p>Interface web con los modulos descritos en la sección modulos y funcionalidades.</p>
+    <p>Servidor para comuncar la interface web con la base de datos.</p>
+    <p>Base de datos para almacenar usuarios y expedientes.</p>
+    <p>Servidor local solo disponible en la red institucional.</p>
+    <br>
+    <h3>ROLES</h3>
+    <br>
+    <p>A continuación se describen los roles de los usuarios dentro de la aplicación.</p>
+    <table class="table table-bordered">
+        <tr>
+            <td>Administrador</td>
+            <td>Es quien gestiona la aplicación, tiene acceso a todos los modulos y puede hacer cambios en
+                la informacion de los usuarios, como reestablecer contraseñas, negar u otorgar accesos, cambiar permisos.
+            </td>
+        </tr>
+        <tr>
+            <td>Docente</td>
+            <td>Responsable de revisar, autorizar, o rechazar la información que se ingresa a los expedientes,tiene
+                la facultad de hacer el pase de lista a los alumnos, autorizar y aumentar horas en la clinica o
+                quitarlas si
+                lo considera necesario. </td>
+        </tr>
+        <tr>
+            <td>Alumno</td>
+            <td>Encargado de dar de alta y editar la información de los expedientes</td>
+        </tr>
+    </table>
+    <br>
+    <h3>MODULOS Y FUNCIONALIDADES</h3>
+    <br>
+    <p>
+        Se describen las funcionalidades de la interfaz web por módulo. También se muestra el rol principal asignado
+        al
+        módulo, sin mebargo el administrador puede definir accesos adicionales y distintos a los establecidos a
+        continuación.
+    </p>
+    <table class="table table-bordered">
+        <tr>
+            <td>Módulo</td>
+            <td>Rol</td>
+            <td>Descripción</td>
+        </tr>
+        <tr>`
+            <td>Login</td>
+            <td>Administrador, Docente, Alumno.
+            </td>
+            <td>Interface para inicio de sesión de todos los roles, permite ingresar a la aplicación a un usuario y
+                contraseña
+                validos, el acceso depende de los permisos del rol o del usuario.</td>
+        </tr>
+        <tr>
+            <td>Registro</td>
+            <td>Alumno, Docente</td>
+            <td>Posibilita crear una nueva cuenta en la
+                aplicación, la nueva cuenta queda a disposición de un
+                docente o administrador para ser autorizada.
+                Se piden los siguientes datos para identificar al usuario:
+                <ul>
+                    <li>Nombre(s)
+                    <li>
+                    <li>Apellido paterno</li>
+                    <li>Apellido Materno</li>
+                    <li>Usuario (Numero de control en la institución )</li>
+                    <li>Contraseña (En caso de olvidarla, el administrador el administrador la reestablece con el numero
+                        de control)</li>
+                    <li>Semestre</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Permisos y acceso</td>
+            <td>Administrador</td>
+            <td>Autoriza cambios en los permisos por defecto de los usuarios, se pueden establecer permisos
+                especiales a
+                cualquier usuario.
+                <br>Para el caso del acceso, aun cuando la cuenta tenga permisos de entrar a la
+                aplicación se puede bloquear de forma que la cuenta queda inutilizable.
+                <br>Los permisos son acceso a los modulos y edicion de los expedientes.
+                <br>En caso de ser necesario se permite reestablecer la contraseña de una cuenta.
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Expedientes</td>
+            <td>Alumno</td>
+            <td>
+                <ul>
+                    <li>Acceso a una lista de expedientes que tiene a su cargo.</li>
+                    <li>Se permite agregar expedientes nuevos.</li>
+                    <li>Posibilidad de editar expedientes si se tiene permisos y acceso a ellos.</li>
+                    <li>Las ediciones quedan pendientes de autorización, pueden tener anotaciones que mencionen
+                        correciones que se deben hacer.</li>
+                    <li>Se mantienen dos versiones de los expedientes, la original, tiene la información aprobada,
+                        el
+                        borrador, tiene todas las actualizaciones hechas con las anotaciones o correcciones.</li>
+                    <li>Se contemplan horas de entrada y salida por cada sesión de fisioterapia para contemplar
+                        horas en
+                        la clinica.</li>
+                    <li>Sistema de notificaciones para informar de exito o corrección al hacer una actualización.
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Docente</td>
+            <td>
+                <ul>
+                    <li>Lista con todas las actualizaciones a los expedientes pendientes de aprobación o
+                        retroalimentación.</li>
+                    <li>Acceso a todos los expedientes en sus dos versiones.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Horas</td>
+            <td>Alumno</td>
+            <td>
+                <ul>
+                    <li>Resumen de las horas que tiene actualmente y los expedientes en los que estuvo involucrado.
+                    </li>
+                    <li>Reporte con las horas que le han sido quitadas con el concepto de la falta.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Docente</td>
+            <td>
+                <ul>
+                    <li>Lista con los alumnos actuales en clinica con las horas que tiene cada uno, incluyendo las
+                        que
+                        se le han quitado.</li>
+                    <li>Se puede otorgar mas horas con un concepto.</li>
+                    <li>Se permite quitar horas con un concepto.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">Asistencia</td>
+            <td>Alumno</td>
+            <td>
+                Resumen de asistencias del alumno, se permiten ver detalles por estado.
+            </td>
+        </tr>
+        <tr>
+            <td>Docente</td>
+            <td>
+                <ul>
+                    <li>Lista para pase de lista de los alumnos, se contemplan cuatro estados:
+                        asistencia,
+                        falta, retardo y permiso (se puede agregar un concepto).
+                    </li>
+                    <li>
+                        Resumen de asistencias de los alumnos, se permiten ver detalles por alumno y estado.
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Graficas</td>
+            <td>Docente, Administrador</td>
+            <td>
+                <ul>
+                    <li>Reporte de número de pacientes por conceptos como sexo, edad,ocupación,domicilio</li>
+                    <li>Reporte tipo de malestar o zona afectada</li>
+                    <li>Reporte por tiempo de recuperación</li>
+                </ul>
+                <p>Por cada reporte se muestra un resumen de los expedientes utilizados para el calculo, con enlace
+                    para redirigir al expediente.</p>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <h3>TECNOLOGÍAS</h3>
+    <br>
+    <h3>DISEÑO DE ARQUITECTURAS QUE DAN SOPORTE A LA APLICACIÓN.</h3>
+    <br>
+    <p>
+        Arquitectura de aplicaciones en N-capas
+        <br>
+        <br>Es una arquitectura para diseñar aplicaciones complejas, tiene como fin la
+        separación lógica de sus componentes y funcionalidades, así como soportar
+        requerimientos complejos operacionales, ofrecer un buena mantenibilidad,
+        reusabilidad, escalabilidad, robustez y seguridad
+        <br>
+        <br>
+        Arquitectura MVC
+        <br>
+        <br>
+        El patrón MVC permite separar la estructura de la aplicación en tres niveles,
+        interfaz de usuario, lógica de control y lógica de negocio. Es una especialización
+        de un modelo de capas, con la diferencia que se usa para entornos web como
+        patrón por excelencia. Ejemplo: Struts, Spring, Asp.NET MVC... Etc.
+    </p>
+    <br>
+    <br>
+    <h3>BASE DE DATOS</h3>
+    <br>
+    <p>MariaDB</p>
+    <p>
+        Es una base de datos relacional de codigo abierto basada en Mysql. El desarrollo principal del proyecto lo hace
+        Monty Program Ab, ademas cuenta con soporte de la comunidad de desarrolladores de software libre ya que usa una
+        licencia de software GPL v2(Licencia Publica General de GNU), la cual es una licencia de derechos de
+        autor que
+        garantiza el libre uso, estudio y distribución del software, siempre que se cumplan las politicas de la
+        licencia.
+        <br>
+        Debido a su base en Mysql, cuenta con todas las caracteristicas, interfaces, comandos, librerias y APIs, esto
+        facilita la migración a MariaDB, al no tener que convertir las tablas.
+        Tambien tiene mejoras en comparación con su paquete base, entre las que se encuentran:
+        <ul>
+            <li>Motores de almacenamiento más eficientes que permiten consultas complejas mas rápidas y eficientes
+                guardandolas en
+                caché y no en el disco.</li>
+            <li>Mejoras en rendimiento, velocidad y seguridad.</li>
+            <li>Nuevas tablas de sistema que pemiten obtener información para optimizar las bases de datos.</li>
+            <li>Permite mas de 200 000 conexiones, debido a que implementa el sistema pool-of-threads.</li>
+        </ul>
+        <br>
+    </p>
+    <br>
+    <h3>LENGUAJE DE PROGRAMACIÓN</h3>
+    <br>
+    <p>Java</p>
+    <br>
+    <p>
+        En la actualidad Java se utiliza para desarrollar aplicaciones empresariales, posibilita y mejora las
+        funcionalidades de los servidores que proveen el contenido de las apliciones web, aunque también es utilizado
+        para el desarrollo de aplicaciones de escritorio y aplicaciones moviles que corren en el sistema operativo
+        Android.
+        <br>
+        Es un lenguaje de programación orientado a objetos, este diseño permite modelar objetos por sus atributos y
+        comportamiento de una manera intuitiva, tal y como se describen los objetos del mundo real. Este paradigma
+        permite separar el código en clases que pueden ser reutilizadas.
+        <br>
+        Java cuenta con varias bibliotecas o APIs que empaquetan funcionalidades que la mayoria de los programadores
+        utiliza para mejorar el rendimiento y reducir el tiempo de desarrollo de los programas.
+    </p>
+    <br>
+    <p>Java Script</p>
+    <br>
+    <p>El lenguaje de programación JavaScript surgió con el propósito de
+        complementar las páginas web de HTML ya que en un principio las páginas no
+        eran capaces de desplegar nuevas ventanas sobre la actual o mandar mensajes
+        de alerta, esto debido a que el lenguaje HTML solo interactúa con el texto y su
+        distribución. JavaScript es soportado por varios navegadores.
+        <br>
+        Lenguaje creado por Netscape, en un principio tenía otro nombre y no tenía todas
+        las características de compatibilidad y las funcionalidades que ahora, fue hasta
+        que Netscape hizo una alianza con Sun el creador del lenguaje Java, que adquirió
+        el nombre de JavaScript y las algunas características de Java como su sintaxis
+        aunque no puede ser usado fuera del entorno de una página, en comparación es
+        más fácil de usar sin significar que sea el lenguaje reducido de Java.
+    </p>
+    <br>
+
+    <h3>INTERFACES</h3>
+    <br>
+    <p>Bootstrap</p>
+    <br>
+    <p>Es un framework originalmente creado por Twitter, que permite crear interfaces
+        web con CSS y JavaScript, cuya popularidad es la de adaptar la interfaz del sitio
+        a la resolución del dispositivo en que se visualice, es decir, que el sitio web se
+        adapta automáticamente al tamaño de un PC, en una Tablet u otro dispositivo,
+        esta técnica de diseño y desarrollo se conoce como “responsive desing” o diseño
+        adaptativo.
+        <br>
+        Uno de los beneficios de usar responsive desing en un sitio web, es
+        principalmente la adaptación del sitio web al dispositivo de donde se esté
+        accediendo.
+        <br>
+        El Framework trae varios elementos con estilos predefinidos fáciles de configurar:
+        Botones, Menús desplegables, Formularios incluyendo todos sus elementos e
+        integración jQuery para ofrecer ventanas y tooltips dinámicos.
+    </p>
+    <br>
+    <p>CSS</p>
+    <br>
+    <p>Las hojas de estilo en cascada (CSS) son las que ofrecen la posibilidad de definir
+        reglas de representación en diferentes dispositivos, ya sean pantallas de PC,
+        Laptop, móviles u otro dispositivo capas de visualizar contenido. Estás nos
+        permiten aplicar estilos y formato a una página HTML.
+    </p>
+    <br>
+    <h3>DIAGRAMA DE IMPLEMENTACION</h3>
+    <br>
+    <img src="DIAGRAMA DE IMPLEMENTACION.jpg">
+</body>
+
+</html>

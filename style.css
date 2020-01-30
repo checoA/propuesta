@@ -1,0 +1,28 @@
+* {
+    text-align: justify;
+    font-size: 12pt;
+}
+
+h3 {
+    font-size: 14pt;
+}
+
+body {
+    padding: 60px;
+}
+
+table tr td {
+    padding: 15px!important;
+}
+
+@media print {
+    table {
+        break-inside: auto;
+    }
+
+}
+
+img{
+    width: 60%;
+    margin-left: 20%;
+}
